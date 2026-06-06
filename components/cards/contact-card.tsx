@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail, Sparkles } from "lucide-react";
+import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/brand-icons";
 import { BentoCard } from "@/components/bento-card";
 import { SectionLabel } from "@/components/section-label";
 import { Magnetic } from "@/components/magnetic";

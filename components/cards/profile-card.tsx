@@ -1,6 +1,7 @@
 "use client";
 
-import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Download, Mail, MapPin } from "lucide-react";
+import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/brand-icons";
 import { BentoCard } from "@/components/bento-card";
 import { profile } from "@/data/portfolio";
 import { Magnetic } from "@/components/magnetic";

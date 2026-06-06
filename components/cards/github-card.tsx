@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { Github } from "lucide-react";
+import { GithubIcon as Github } from "@/components/brand-icons";
 import { useMemo, useRef } from "react";
 import { BentoCard } from "@/components/bento-card";
 import { SectionLabel } from "@/components/section-label";
