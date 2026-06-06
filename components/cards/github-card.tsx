@@ -8,23 +8,19 @@ import { SectionLabel } from "@/components/section-label";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { githubStats } from "@/data/portfolio";
 
-/** 7x13 contribution grid generated deterministically. */
+/** 7x13 contribution grid generated deterministically (LCG without rebinding). */
+function buildGrid() {
+  const out: number[] = [];
+  let seed = 7919;
+  for (let i = 0; i < 7 * 13; i++) {
+    seed = (Math.imul(seed, 1103515245) + 12345) & 0x7fffffff;
+    const r = seed / 0x7fffffff;
+    out.push(r > 0.85 ? 4 : r > 0.65 ? 3 : r > 0.4 ? 2 : r > 0.2 ? 1 : 0);
+  }
+  return out;
+}
 function useGrid() {
-  return useMemo(() => {
-    let s = 7919;
-    const rand = () => {
-      s = (s * 1103515245 + 12345) & 0x7fffffff;
-      return s / 0x7fffffff;
-    };
-    return Array.from({ length: 7 * 13 }, () => {
-      const r = rand();
-      if (r > 0.85) return 4;
-      if (r > 0.65) return 3;
-      if (r > 0.4) return 2;
-      if (r > 0.2) return 1;
-      return 0;
-    });
-  }, []);
+  return useMemo(() => buildGrid(), []);
 }
 
 const heat = ["bg-white/[0.04]", "bg-[#0e3a22]", "bg-[#155e30]", "bg-[#1d8845]", "bg-[#22c55e]"];

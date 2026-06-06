@@ -13,11 +13,6 @@ interface BentoCardProps {
   spotlight?: boolean;
   /** Custom data-cursor label for the custom cursor when hovering. */
   cursorLabel?: string;
-  as?: "div" | "a" | "section";
-  href?: string;
-  target?: string;
-  rel?: string;
-  onClick?: () => void;
 }
 
 export function BentoCard({
@@ -26,11 +21,6 @@ export function BentoCard({
   tilt = true,
   spotlight = true,
   cursorLabel,
-  as = "div",
-  href,
-  target,
-  rel,
-  onClick,
 }: BentoCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-1000);
@@ -68,15 +58,9 @@ export function BentoCard({
     }
   }
 
-  const Component: any = motion[as as "div"];
-
   return (
-    <Component
+    <motion.div
       ref={ref}
-      href={href}
-      target={target}
-      rel={rel}
-      onClick={onClick}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       data-cursor={cursorLabel}
@@ -109,6 +93,6 @@ export function BentoCard({
         className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-overlay noise"
       />
       <div className="relative z-10 h-full">{children}</div>
-    </Component>
+    </motion.div>
   );
 }

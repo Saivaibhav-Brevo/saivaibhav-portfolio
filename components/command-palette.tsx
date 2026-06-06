@@ -124,13 +124,12 @@ export function CommandPalette() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  useEffect(() => {
-    setActive(0);
-  }, [query, open]);
-
   const filtered = items.filter((i) =>
     i.label.toLowerCase().includes(query.toLowerCase()),
   );
+
+  // Clamp active to a valid index instead of resetting via an effect.
+  const safeActive = Math.min(Math.max(active, 0), Math.max(filtered.length - 1, 0));
 
   const groups = filtered.reduce<Record<string, Item[]>>((acc, item) => {
     (acc[item.group] ||= []).push(item);
@@ -138,21 +137,22 @@ export function CommandPalette() {
   }, {});
 
   function runActive() {
-    const item = filtered[active];
+    const item = filtered[safeActive];
     if (item) {
       item.action();
       setOpen(false);
       setQuery("");
+      setActive(0);
     }
   }
 
   function onListKey(e: React.KeyboardEvent) {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActive((a) => Math.min(a + 1, filtered.length - 1));
+      setActive(Math.min(safeActive + 1, filtered.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setActive((a) => Math.max(a - 1, 0));
+      setActive(Math.max(safeActive - 1, 0));
     } else if (e.key === "Enter") {
       e.preventDefault();
       runActive();
@@ -199,7 +199,10 @@ export function CommandPalette() {
                 <input
                   autoFocus
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    setActive(0);
+                  }}
                   placeholder="Search the portfolio…"
                   className="h-12 flex-1 bg-transparent text-sm text-white placeholder:text-white/30 focus:outline-none"
                 />
@@ -221,7 +224,7 @@ export function CommandPalette() {
                     </div>
                     {list.map((item) => {
                       const idx = filtered.indexOf(item);
-                      const isActive = idx === active;
+                      const isActive = idx === safeActive;
                       return (
                         <button
                           key={item.id}
@@ -230,6 +233,7 @@ export function CommandPalette() {
                             item.action();
                             setOpen(false);
                             setQuery("");
+                            setActive(0);
                           }}
                           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                             isActive

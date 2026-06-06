@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 /**
  * Layered ambient background:
@@ -59,33 +59,36 @@ function Aurora() {
   );
 }
 
-function Particles({ count = 30 }: { count?: number }) {
-  // Generate deterministic positions client-side only to avoid hydration mismatch.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const items = useMemo(() => {
-    // Mulberry32 deterministic PRNG
-    let s = 1337;
-    const rand = () => {
-      s |= 0;
-      s = (s + 0x6d2b79f5) | 0;
-      let t = Math.imul(s ^ (s >>> 15), 1 | s);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-    return Array.from({ length: count }, (_, i) => ({
+/** Mulberry32-style deterministic PRNG so SSR + CSR produce identical particles. */
+function makeParticles(count: number) {
+  const out: { id: number; left: number; top: number; size: number; delay: number; duration: number; opacity: number }[] = [];
+  for (let i = 0; i < count; i++) {
+    const seed = (1337 + i * 0x6d2b79f5) >>> 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    const r1 = ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    let u = Math.imul(t ^ (t >>> 14), 2243 | t);
+    u = (u + Math.imul(u ^ (u >>> 5), 121 | u)) ^ u;
+    const r2 = ((u ^ (u >>> 16)) >>> 0) / 4294967296;
+    let v = Math.imul(u ^ (u >>> 9), 9929 | u);
+    v = (v + Math.imul(v ^ (v >>> 3), 31 | v)) ^ v;
+    const r3 = ((v ^ (v >>> 11)) >>> 0) / 4294967296;
+    out.push({
       id: i,
-      left: rand() * 100,
-      top: rand() * 100,
-      size: 1 + rand() * 2,
-      delay: rand() * 6,
-      duration: 8 + rand() * 10,
-      opacity: 0.15 + rand() * 0.5,
-    }));
-  }, [count]);
+      left: r1 * 100,
+      top: r2 * 100,
+      size: 1 + r3 * 2,
+      delay: r1 * 6,
+      duration: 8 + r2 * 10,
+      opacity: 0.15 + r3 * 0.5,
+    });
+  }
+  return out;
+}
 
-  if (!mounted) return null;
+function Particles({ count = 30 }: { count?: number }) {
+  // Particles are seeded deterministically so SSR and CSR produce identical output.
+  const items = useMemo(() => makeParticles(count), [count]);
 
   return (
     <div className="absolute inset-0">

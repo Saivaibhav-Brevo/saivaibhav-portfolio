@@ -13,6 +13,8 @@ interface TypingTextProps {
   className?: string;
 }
 
+type Phase = "type" | "hold" | "delete";
+
 export function TypingText({
   words,
   typeSpeed = 70,
@@ -22,28 +24,44 @@ export function TypingText({
 }: TypingTextProps) {
   const [index, setIndex] = useState(0);
   const [shown, setShown] = useState("");
-  const [phase, setPhase] = useState<"type" | "hold" | "delete">("type");
+  const [phase, setPhase] = useState<Phase>("type");
 
   useEffect(() => {
     const word = words[index % words.length];
-    let timeout: ReturnType<typeof setTimeout>;
+    let cancelled = false;
+
+    function schedule(fn: () => void, ms: number) {
+      const t = setTimeout(() => {
+        if (!cancelled) fn();
+      }, ms);
+      return t;
+    }
+
+    let timer: ReturnType<typeof setTimeout>;
 
     if (phase === "type") {
       if (shown.length < word.length) {
-        timeout = setTimeout(() => setShown(word.slice(0, shown.length + 1)), typeSpeed);
+        timer = schedule(() => setShown(word.slice(0, shown.length + 1)), typeSpeed);
       } else {
-        timeout = setTimeout(() => setPhase("delete"), holdMs);
+        timer = schedule(() => setPhase("delete"), holdMs);
       }
     } else if (phase === "delete") {
       if (shown.length > 0) {
-        timeout = setTimeout(() => setShown(word.slice(0, shown.length - 1)), deleteSpeed);
+        timer = schedule(() => setShown(word.slice(0, shown.length - 1)), deleteSpeed);
       } else {
-        setIndex((i) => i + 1);
-        setPhase("type");
+        // Defer state transitions to the next tick so they happen in an
+        // async callback (not synchronously inside the effect body).
+        timer = schedule(() => {
+          setIndex((i) => i + 1);
+          setPhase("type");
+        }, 0);
       }
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [shown, phase, index, words, typeSpeed, deleteSpeed, holdMs]);
 
   return (
