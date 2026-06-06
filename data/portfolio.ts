@@ -11,6 +11,8 @@ export const profile = {
   current: "Brevo",
   previous: ["CARS24", "Juspay"],
   initials: "SV",
+  // Dummy avatar — replace with a real photo when ready.
+  avatar: "https://i.pravatar.cc/300?img=12",
 };
 
 export const aboutText =
