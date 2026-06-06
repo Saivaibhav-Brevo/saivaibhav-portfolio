@@ -16,7 +16,7 @@ const groupColor: Record<string, string> = {
 
 export function StackCard() {
   return (
-    <BentoCard className="col-span-12 md:col-span-6 p-8" cursorLabel="Stack">
+    <BentoCard className="p-6" cursorLabel="Stack">
       <div className="flex h-full flex-col gap-6">
         <div className="flex items-center justify-between">
           <SectionLabel icon={<Layers className="h-3 w-3" />}>Tech Arsenal</SectionLabel>

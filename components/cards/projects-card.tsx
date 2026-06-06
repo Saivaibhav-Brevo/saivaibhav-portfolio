@@ -9,7 +9,7 @@ import { projects, type Project } from "@/data/portfolio";
 export function ProjectsCard() {
   return (
     <BentoCard
-      className="col-span-12 md:col-span-7 md:row-span-2 p-8"
+      className="p-6"
       cursorLabel="Projects"
     >
       <div className="flex h-full flex-col gap-6">

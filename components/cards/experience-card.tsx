@@ -17,7 +17,7 @@ export function ExperienceCard() {
 
   return (
     <BentoCard
-      className="col-span-12 md:col-span-6 p-8"
+      className="p-6"
       cursorLabel="Journey"
       tilt={false}
     >

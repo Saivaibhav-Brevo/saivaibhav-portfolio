@@ -31,7 +31,7 @@ export function GithubCard() {
   const inView = useInView(ref, { once: true, margin: "-15%" });
 
   return (
-    <BentoCard className="col-span-12 md:col-span-6 p-8" cursorLabel="GitHub">
+    <BentoCard className="p-6" cursorLabel="GitHub">
       <div ref={ref} className="flex h-full flex-col gap-6">
         <div className="flex items-center justify-between">
           <SectionLabel icon={<Github className="h-3 w-3" />}>Github Activity</SectionLabel>

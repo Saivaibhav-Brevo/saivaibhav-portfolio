@@ -8,7 +8,7 @@ import { articles } from "@/data/portfolio";
 
 export function WritingCard() {
   return (
-    <BentoCard className="col-span-12 md:col-span-3 p-8" cursorLabel="Read">
+    <BentoCard className="p-6" cursorLabel="Read">
       <div className="flex h-full flex-col gap-6">
         <SectionLabel icon={<BookOpen className="h-3 w-3" />}>Latest Articles</SectionLabel>
 

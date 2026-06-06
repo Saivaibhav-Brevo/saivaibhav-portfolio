@@ -8,7 +8,7 @@ import { exploring } from "@/data/portfolio";
 
 export function ExploringCard() {
   return (
-    <BentoCard className="col-span-12 md:col-span-3 p-8" cursorLabel="Exploring">
+    <BentoCard className="p-6" cursorLabel="Exploring">
       <div className="flex h-full flex-col gap-6">
         <SectionLabel icon={<Compass className="h-3 w-3" />}>Currently Exploring</SectionLabel>
 

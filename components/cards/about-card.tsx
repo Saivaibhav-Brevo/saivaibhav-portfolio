@@ -8,7 +8,7 @@ import { aboutText, aboutSecondary } from "@/data/portfolio";
 
 export function AboutCard() {
   return (
-    <BentoCard className="col-span-12 md:col-span-7 p-8 md:p-10" cursorLabel="About">
+    <BentoCard className="p-6 md:p-7" cursorLabel="About">
       <div className="flex h-full flex-col gap-6">
         <SectionLabel icon={<User className="h-3 w-3" />}>About Me</SectionLabel>
 

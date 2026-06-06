@@ -8,7 +8,7 @@ import { highlights } from "@/data/portfolio";
 
 export function HighlightsCard() {
   return (
-    <BentoCard className="col-span-12 p-8 md:p-10" cursorLabel="Highlights">
+    <BentoCard className="p-6 md:p-7" cursorLabel="Highlights">
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
           <SectionLabel icon={<Crown className="h-3 w-3" />}>By the Numbers</SectionLabel>
