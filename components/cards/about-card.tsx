@@ -54,7 +54,7 @@ export function AboutCard() {
               key={tag}
               className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 text-xs text-white/70 transition-colors hover:border-white/20 hover:text-white"
             >
-              <span className="h-1 w-1 rounded-full bg-[#22c55e]" />
+              <span className="h-1 w-1 rounded-full bg-[#6366f1]" />
               {tag}
             </span>
           ))}

@@ -29,7 +29,7 @@ export function BentoCard({
   const rx = useSpring(useMotionValue(0), { stiffness: 200, damping: 20, mass: 0.4 });
   const ry = useSpring(useMotionValue(0), { stiffness: 200, damping: 20, mass: 0.4 });
 
-  const background = useMotionTemplate`radial-gradient(420px circle at ${mouseX}px ${mouseY}px, rgba(34, 197, 94, 0.12), transparent 60%)`;
+  const background = useMotionTemplate`radial-gradient(420px circle at ${mouseX}px ${mouseY}px, rgba(99, 102, 241, 0.12), transparent 60%)`;
 
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
     const el = ref.current;

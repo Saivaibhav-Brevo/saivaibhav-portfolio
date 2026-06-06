@@ -67,7 +67,7 @@ export function TypingText({
   return (
     <span className={className}>
       {shown}
-      <span className="ml-[2px] inline-block h-[1em] w-[2px] translate-y-[2px] bg-[#22c55e] align-middle animate-blink" />
+      <span className="ml-[2px] inline-block h-[1em] w-[2px] translate-y-[2px] bg-[#6366f1] align-middle animate-blink" />
     </span>
   );
 }

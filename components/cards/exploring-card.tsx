@@ -23,8 +23,8 @@ export function ExploringCard() {
               className="group/expl flex items-center gap-3 text-sm text-white/65 transition-colors hover:text-white"
             >
               <span className="relative inline-flex h-1.5 w-1.5">
-                <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e]/60" />
-                <span className="relative h-1.5 w-1.5 rounded-full bg-[#22c55e]" />
+                <span className="absolute inset-0 animate-ping rounded-full bg-[#6366f1]/60" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-[#6366f1]" />
               </span>
               <span className="font-medium tracking-tight">{item}</span>
             </motion.div>

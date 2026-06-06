@@ -17,7 +17,7 @@ export function ProfileCard() {
             className="absolute -inset-2 rounded-full opacity-70 blur-md animate-spin-slow"
             style={{
               background:
-                "conic-gradient(from 0deg, rgba(34,197,94,0.5), rgba(34,197,94,0) 60%, rgba(34,197,94,0.5))",
+                "conic-gradient(from 0deg, rgba(99,102,241,0.5), rgba(99,102,241,0) 60%, rgba(99,102,241,0.5))",
             }}
           />
           <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-gradient-to-br from-[#111] to-[#0a0a0a]">
@@ -26,8 +26,8 @@ export function ProfileCard() {
             </span>
           </div>
           {/* Online dot */}
-          <span className="absolute bottom-1 right-1 inline-flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#0a0a0a] bg-[#22c55e]">
-            <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e] opacity-50" />
+          <span className="absolute bottom-1 right-1 inline-flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#0a0a0a] bg-[#6366f1]">
+            <span className="absolute inset-0 animate-ping rounded-full bg-[#6366f1] opacity-50" />
           </span>
         </div>
 
@@ -69,7 +69,7 @@ function IconLink({
         rel={href.startsWith("http") ? "noreferrer" : undefined}
         download={download}
         data-cursor={label}
-        className="group/link inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.02] px-3 py-2.5 text-xs font-medium text-white/75 transition-all duration-300 hover:border-[#22c55e]/40 hover:bg-[#22c55e]/[0.08] hover:text-white"
+        className="group/link inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.02] px-3 py-2.5 text-xs font-medium text-white/75 transition-all duration-300 hover:border-[#6366f1]/40 hover:bg-[#6366f1]/[0.08] hover:text-white"
       >
         <span className="transition-transform duration-300 group-hover/link:scale-110">{icon}</span>
         {label}

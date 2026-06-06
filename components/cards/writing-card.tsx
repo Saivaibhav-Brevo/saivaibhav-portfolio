@@ -25,7 +25,7 @@ export function WritingCard() {
               className="group/art flex items-start justify-between gap-3 py-3 first:pt-0 last:pb-0"
             >
               <div className="min-w-0">
-                <div className="text-[10px] uppercase tracking-wider text-[#22c55e]">
+                <div className="text-[10px] uppercase tracking-wider text-[#6366f1]">
                   {a.topic}
                 </div>
                 <div className="mt-1 text-sm font-medium text-white/85 group-hover/art:text-white">
@@ -33,7 +33,7 @@ export function WritingCard() {
                 </div>
                 <div className="mt-1 text-[11px] text-white/40">{a.readingTime}</div>
               </div>
-              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-white/30 transition-transform duration-300 group-hover/art:rotate-45 group-hover/art:text-[#22c55e]" />
+              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-white/30 transition-transform duration-300 group-hover/art:rotate-45 group-hover/art:text-[#6366f1]" />
             </motion.a>
           ))}
         </div>

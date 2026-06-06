@@ -52,7 +52,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             <h3 className="truncate text-base font-semibold text-white md:text-lg">
               {project.title}
             </h3>
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover/proj:rotate-45 group-hover/proj:text-[#22c55e]" />
+            <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover/proj:rotate-45 group-hover/proj:text-[#6366f1]" />
           </div>
           <p className="mt-1.5 line-clamp-2 text-xs text-white/55 md:text-sm">
             {project.description}

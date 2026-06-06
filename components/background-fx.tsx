@@ -32,7 +32,7 @@ function Aurora() {
         className="absolute -top-1/3 left-1/2 h-[80vh] w-[80vw] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(34,197,94,0.30), rgba(34,197,94,0) 70%)",
+            "radial-gradient(closest-side, rgba(99,102,241,0.30), rgba(99,102,241,0) 70%)",
         }}
         animate={{ y: [0, 18, 0], x: ["-50%", "-48%", "-50%"] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}

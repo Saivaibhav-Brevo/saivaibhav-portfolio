@@ -24,7 +24,7 @@ export function SiteHeader() {
         data-cursor="Home"
         className="flex items-center gap-2 pl-2 pr-3 text-sm font-semibold tracking-tight text-white"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#22c55e] to-[#16a34a] text-[11px] font-bold text-black">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#6366f1] to-[#4f46e5] text-[11px] font-bold text-black">
           {profile.initials}
         </span>
         <span className="hidden sm:inline">{profile.name}</span>
@@ -48,7 +48,7 @@ export function SiteHeader() {
           data-cursor="Email"
           className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/[0.12]"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#6366f1]" />
           Get in touch
         </a>
       </Magnetic>

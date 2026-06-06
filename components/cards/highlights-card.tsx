@@ -30,7 +30,7 @@ export function HighlightsCard() {
                   {h.value}
                 </div>
                 {/* Hover glow */}
-                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-[#22c55e]/0 blur-2xl transition-colors duration-500 group-hover/h:bg-[#22c55e]/20" />
+                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-[#6366f1]/0 blur-2xl transition-colors duration-500 group-hover/h:bg-[#6366f1]/20" />
               </div>
               <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
                 {h.label}

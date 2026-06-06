@@ -21,7 +21,7 @@ export function ContactCard() {
         className="pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[80%] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(34,197,94,0.35), rgba(34,197,94,0) 70%)",
+            "radial-gradient(closest-side, rgba(99,102,241,0.35), rgba(99,102,241,0) 70%)",
         }}
       />
 
@@ -48,7 +48,7 @@ export function ContactCard() {
             <a
               href={`mailto:${profile.email}`}
               data-cursor="Email"
-              className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#22c55e] px-5 py-3 text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
+              className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#6366f1] px-5 py-3 text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
             >
               <Mail className="h-4 w-4" />
               Email me

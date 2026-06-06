@@ -17,7 +17,7 @@ export function SectionLabel({
         className,
       )}
     >
-      {icon && <span className="text-[#22c55e]">{icon}</span>}
+      {icon && <span className="text-[#6366f1]">{icon}</span>}
       <span>{children}</span>
     </div>
   );

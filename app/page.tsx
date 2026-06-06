@@ -64,7 +64,7 @@ export default function Home() {
       <footer className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-white/35 sm:flex-row">
         <span>© {new Date().getFullYear()} Saivaibhav K S — Bangalore, India</span>
         <span className="flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#6366f1]" />
           Crafted with Next.js, Tailwind & Framer Motion
         </span>
       </footer>

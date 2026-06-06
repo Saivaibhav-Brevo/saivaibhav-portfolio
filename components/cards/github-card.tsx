@@ -23,7 +23,7 @@ function useGrid() {
   return useMemo(() => buildGrid(), []);
 }
 
-const heat = ["bg-white/[0.04]", "bg-[#0e3a22]", "bg-[#155e30]", "bg-[#1d8845]", "bg-[#22c55e]"];
+const heat = ["bg-white/[0.04]", "bg-[#1e1b4b]", "bg-[#312e81]", "bg-[#4338ca]", "bg-[#6366f1]"];
 
 export function GithubCard() {
   const grid = useGrid();
@@ -58,7 +58,7 @@ export function GithubCard() {
             >
               <div className="text-lg font-semibold text-white">
                 <AnimatedCounter value={s.value} />
-                <span className="text-[#22c55e]">+</span>
+                <span className="text-[#6366f1]">+</span>
               </div>
               <div className="mt-1 text-[10px] uppercase tracking-wider text-white/40">
                 {s.label}

@@ -30,7 +30,7 @@ export function ExperienceCard() {
           {/* Animated progress line */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-[7px] top-1 w-px bg-gradient-to-b from-[#22c55e] via-[#22c55e]/60 to-transparent"
+            className="absolute left-[7px] top-1 w-px bg-gradient-to-b from-[#6366f1] via-[#6366f1]/60 to-transparent"
           />
 
           <div className="flex flex-col gap-6">
@@ -45,8 +45,8 @@ export function ExperienceCard() {
               >
                 {/* Glow dot */}
                 <span className="absolute -left-[27px] top-1 flex h-3.5 w-3.5 items-center justify-center">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e]/40" />
-                  <span className="relative h-2 w-2 rounded-full bg-[#22c55e] shadow-[0_0_10px] shadow-[#22c55e]" />
+                  <span className="absolute inset-0 animate-ping rounded-full bg-[#6366f1]/40" />
+                  <span className="relative h-2 w-2 rounded-full bg-[#6366f1] shadow-[0_0_10px] shadow-[#6366f1]" />
                 </span>
 
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
